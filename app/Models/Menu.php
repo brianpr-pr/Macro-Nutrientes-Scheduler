@@ -25,7 +25,7 @@ class Menu extends Model
      */
     public function dishes(): BelongsToMany
     {
-        return $this->belongsToMany(Dish::class);
+        return $this->belongsToMany(Dish::class)->withTimestamps();
     }
 
     /**
@@ -33,6 +33,6 @@ class Menu extends Model
      */
     public function days(): BelongsToMany
     {
-        return $this->belongsToMany(Day::class);
+        return $this->belongsToMany(Day::class)->withTimestamps();
     }
 }

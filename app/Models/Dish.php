@@ -16,7 +16,7 @@ class Dish extends Model
      */
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('units')->withTimestamps();
     }
 
     /**
@@ -24,7 +24,7 @@ class Dish extends Model
      */
     public function menus(): BelongsToMany
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class)->withTimestamps();
     }
 
     /*

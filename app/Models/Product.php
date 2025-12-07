@@ -13,6 +13,14 @@ class Product extends Model
     use HasFactory;
 
     /**
+     * Get which user this product belongs to.
+     */
+    public function user(): BelongsTo
+    {
+       return $this->belongsTo(User::class);
+    }
+
+    /**
      * The dishes that belongs to the product.
      */
     public function dishes(): BelongsToMany

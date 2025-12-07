@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('compositions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->double('amount_macronutrients');
+            $table->foreignId('dish_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

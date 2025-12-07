@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedInteger('amount_products');
+            $table->double('amount_macronutrients')->unsigned()->default(0.0);
             $table->timestamps();   
         });
     }

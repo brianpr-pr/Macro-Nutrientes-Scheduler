@@ -13,6 +13,7 @@ class ProductController extends Controller
             'products' => Product::where('user_id',  User::first()->id)
             ->orWhereNull('user_id')
             ->get(),
+            'product_category' => ProductCategory::all()
         ]);
     }
 }

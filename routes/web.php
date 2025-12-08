@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DayController;
+use App\Http\Controllers\ProductController;
 
-Route::view('/', 'welcome');
+Route::view('/', 'dashboard');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -14,5 +15,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::view('days', [DayController::class, 'calendar']);
+
+Route::get('products', [ProductController::class, 'products']);
 
 require __DIR__.'/auth.php';

@@ -57,4 +57,12 @@ class Product extends Model
         'product_category_id',
         'user_id'
     ];
+
+    /**
+     * Show all products.
+     */
+    function getProducts()
+    {
+        return Product::all();
+    }
 }

@@ -16,6 +16,6 @@ Route::view('profile', 'profile')
 
 Route::view('days', [DayController::class, 'calendar']);
 
-Route::get('products', [ProductController::class, 'products']);
+Route::any('products', [ProductController::class, 'products']);
 
 require __DIR__.'/auth.php';

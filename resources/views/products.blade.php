@@ -1,73 +1,89 @@
 <x-app-layout>
 <div>
-    <h1 class="text-5xl mt-2 mb-7">Create New Product</h1>
-    <div class="border-2 border-black mb-5">
-        <form action="" class="flex flex-col mb-2 mt-4 ms-3">
+    <hr class="border-2 border-black">
+    <h1 class="text-5xl my-1">Create New Product</h1>
+    <hr class="border-2 border-black">
+    <div class="border-2 border-black mt-4 mb-5 rounded-md">
+    
+        <form action="products" method="post" class="flex flex-col mb-2 mt-4 ms-3">
+            @csrf
             <div class="mb-2">
-                <label>Calories:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="calories">Calories:</label>
+                <input type="text" name="calories" id="calories" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label>Total Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="total_fat">Total Fat:</label>
+                <input type="text" name="total_fat" id="total_fat" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label>Satured Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="satured_fat">Satured Fat:</label>
+                <input type="text" name="satured_fat" id="satured_fat" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label>Trans Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="trans_fat">Trans Fat:</label>
+                <input type="text" name="trans_fat" id="trans_fat" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label> Cholestero Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="cholesterol_fat">Cholestero Fat:</label>
+                <input type="text" name="cholesterol_fat" id="cholesterol_fat" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label> Polyunsaturated Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="polyunsaturated_fat">Polyunsaturated Fat:</label>
+                <input type="text" name="polyunsaturated_fat" id="polyunsaturated_fat" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label> Carbohydrates:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="carbohydrates">Carbohydrates:</label>
+                <input type="text" name="carbohydrates" id="carbohydrates" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label> Monounsaturated Fat:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="monounsaturated_fat">Monounsaturated Fat:</label>
+                <input type="text" name="monounsaturated_fat" id="monounsaturated_fat" class="rounded-md w-16">
             </div>
             
             <div class="mb-2">
-                <label> Fiber:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="fiber">Fiber:</label>
+                <input type="text" name="fiber" id="fiber" class="rounded-md w-16">
             </div>
 
             <div class="mb-2">
-                <label> Proteins:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="proteins">Proteins:</label>
+                <input type="text" name="proteins" id="proteins" class="rounded-lg w-16">
             </div>
 
             <div class="mb-2">
-                <label> Unit Measurement:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
+                <label for="unit_measurement">Unit Measurement:</label>
+                <div></div>
+                <select type="text" name="unit_measurement" id="unit_measurement" class="rounded-md w-md">
+                   @foreach()
+                    <option value="">Category Test</option>
+                   @endforeach
+                </select>
             </div>
 
             <div class="mb-2">
-                <label> Product Category:</label>
-                <input type="text" name="" id="" class="rounded-md w-16">
-            </div>    
+                <label for="product_category">Product Category:</label>
+                <input type="text" name="product_category" id="product_category" class="rounded-md w-16">
+            </div>
             
-            <button class="text-white rounded-md border-2 bg-blue-500 w-32 m-auto">Create Product</button>
+            <button type="submit" class="text-white rounded-md border-2 bg-blue-500 w-32 m-auto">Create Product</button>
         </form>
     </div>
 
-    <h1 class="text-5xl">List of Products Avaliable</h1>
+    <div>
+        <p class="text-lg text-center mt-1 mb-5">{{$message}}</p>
+    </div>
+
+    <hr class="border-2 border-black">
+    <h1 class="text-5xl  my-1">List of Products Avaliable</h1>
+    <hr class="border-2 border-black">
+
      @foreach($products as $product)
         <div class="border-2 border-black rounded-md my-2">
             <p> Id: {{ $product->id }} </p>

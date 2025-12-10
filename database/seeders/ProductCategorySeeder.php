@@ -18,7 +18,7 @@ class ProductCategorySeeder extends Seeder
         $categories = [];
         
         foreach($client->getFoodGroups()->food as $foodGroup){
-            array_push($categories, $foodGroup->fg_eng_name );
+            array_push($categories, $foodGroup->fg_eng_name);
         }
 
         foreach($categories as $category){

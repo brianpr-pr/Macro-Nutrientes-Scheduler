@@ -37,6 +37,28 @@ class ProductController extends Controller
             Product::create($validatedData);
         }
 
+
+        /*
+        $client = new BedcaClient();
+        $food = $client->getFood(1);
+
+        echo var_dump( $food );
+        */
+        /*
+        foreach($client->getFoodGroups()->food as $foodGroup){
+            //Category Id that we can use when inserting row
+            //echo var_dump($foodGroup->fg_id);
+            foreach( $client->getFoodsInGroup($foodGroup->fg_id) as $food){
+                foreach($food as $foodItem){
+                    foreach($client->getFood($foodItem->f_id) as $foodData){
+                        echo var_dump( '$foodData' );
+                    }
+                }
+            }
+        }*/
+
+        //foreach($client->getFoodsInGroup(1) as $food){echo(var_dump($food));}
+
         return view('products', [
             'products' => Product::where('user_id',  Auth::id() )
             ->orWhereNull('user_id')

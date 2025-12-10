@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 
+use StaticKidz\BedcaAPI\BedcaClient;
+
 class ProductController extends Controller
 {
     public function products(Request $request): View
@@ -40,7 +42,7 @@ class ProductController extends Controller
             ->orWhereNull('user_id')
             ->get(),
             'product_category' => ProductCategory::all(),
-            'message' => $result
+            'message' => '$client'
         ]);
     }
 }

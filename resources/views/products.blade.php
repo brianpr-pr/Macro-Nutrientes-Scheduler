@@ -4,12 +4,11 @@
     <h1 class="text-5xl my-1">Create New Product</h1>
     <hr class="border-2 border-black">
     <div class="border-2 border-black mt-4 mb-5 rounded-md">
-
         <form action="products" method="post" class="flex flex-col mb-2 mt-4 ms-3">
             @csrf
             <div class="mb-2">
                 <label for="name">Name:</label>
-                <input type="string" placeholder="Product name" name="name" id="name" class="rounded-md w-32 px-2">
+                <input type="string" placeholder="Product name" required name="name" id="name" class="rounded-md w-32 px-2">
                 @if($errors->has('name'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('name') }}</p>
@@ -19,7 +18,7 @@
 
             <div class="mb-2">
                 <label for="calories">Calories:</label>
-                <input type="number" value="1" min="1" name="calories" id="calories" class="rounded-md w-16">
+                <input required type="number" value="1" min="1" name="calories" id="calories" class="rounded-md w-16">
                 @if($errors->has('calories'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('calories') }}</p>
@@ -29,7 +28,7 @@
 
             <div class="mb-2">
                 <label for="total_fat">Total Fat:</label>
-                <input type="number" value="0" min="0" name="total_fat" id="total_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="total_fat" id="total_fat" class="rounded-md w-16">
                 @if($errors->has('total_fat'))
                     <div>
                        <p class="text-red-500"> {{ $errors->first('total_fat') }}</p>
@@ -39,7 +38,7 @@
 
             <div class="mb-2">
                 <label for="saturated_fat">Saturated Fat:</label>
-                <input type="number" value="0" min="0" name="saturated_fat" id="saturated_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="saturated_fat" id="saturated_fat" class="rounded-md w-16">
                 @if($errors->has('saturated_fat'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('saturated_fat') }}</p>
@@ -49,7 +48,7 @@
 
             <div class="mb-2">
                 <label for="trans_fat">Trans Fat:</label>
-                <input type="number" value="0" min="0" name="trans_fat" id="trans_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="trans_fat" id="trans_fat" class="rounded-md w-16">
                 @if($errors->has('trans_fat'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('trans_fat') }}</p>
@@ -59,7 +58,7 @@
 
             <div class="mb-2">
                 <label for="cholesterol_fat">Cholestero Fat:</label>
-                <input type="number" value="0" min="0" name="cholesterol_fat" id="cholesterol_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="cholesterol_fat" id="cholesterol_fat" class="rounded-md w-16">
                 @if($errors->has('cholesterol_fat'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('cholesterol_fat') }}</p>
@@ -69,7 +68,7 @@
 
             <div class="mb-2">
                 <label for="polyunsaturated_fat">Polyunsaturated Fat:</label>
-                <input type="number" value="0" min="0" name="polyunsaturated_fat" id="polyunsaturated_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="polyunsaturated_fat" id="polyunsaturated_fat" class="rounded-md w-16">
                 @if($errors->has('polyunsaturated_fat'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('polyunsaturated_fat') }}</p>
@@ -79,7 +78,7 @@
 
             <div class="mb-2">
                 <label for="carbohydrates">Carbohydrates:</label>
-                <input type="number" value="0" min="0" name="carbohydrates" id="carbohydrates" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="carbohydrates" id="carbohydrates" class="rounded-md w-16">
                 @if($errors->has('carbohydrates'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('carbohydrates') }}</p>
@@ -89,7 +88,7 @@
 
             <div class="mb-2">
                 <label for="monounsaturated_fat">Monounsaturated Fat:</label>
-                <input type="number" value="0" min="0" name="monounsaturated_fat" id="monounsaturated_fat" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="monounsaturated_fat" id="monounsaturated_fat" class="rounded-md w-16">
                 @if($errors->has('monounsaturated_fat'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('monounsaturated_fat') }}</p>
@@ -99,7 +98,7 @@
             
             <div class="mb-2">
                 <label for="fiber">Fiber:</label>
-                <input type="number" value="0" min="0" name="fiber" id="fiber" class="rounded-md w-16">
+                <input required type="number" value="0" min="0" name="fiber" id="fiber" class="rounded-md w-16">
                 @if($errors->has('fiber'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('fiber') }}</p>
@@ -109,7 +108,7 @@
 
             <div class="mb-2">
                 <label for="proteins">Proteins:</label>
-                <input type="number" value="0" min="0" name="proteins" id="proteins" class="rounded-lg w-16">
+                <input required type="number" value="0" min="0" name="proteins" id="proteins" class="rounded-lg w-16">
                 @if($errors->has('proteins'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('proteins') }}</p>
@@ -119,7 +118,7 @@
             <div class="mb-2">
                 <label for="unit_measurement">Unit Measurement:</label>
                 <div></div>
-                <select type="text" name="unit_measurement" id="unit_measurement" class="rounded-md w-lg">
+                <select required type="text" name="unit_measurement" id="unit_measurement" class="rounded-md w-lg">
                     <option value="grams">Grams</option>
                     <option value="kilograms">Kilograms</option>
                     <option value="miligrams">Miligrams</option>
@@ -134,7 +133,7 @@
 
             <div class="mb-2">
                 <label for="product_category_id">Product Category:</label>
-                <select type="number" name="product_category_id" id="product_category_id" class="rounded-md w-lg">
+                <select required type="number" name="product_category_id" id="product_category_id" class="rounded-md w-lg">
                    @foreach($product_category as $category)
                     <option value="{{$category->id}}">{{$category->category}}</option>
                    @endforeach

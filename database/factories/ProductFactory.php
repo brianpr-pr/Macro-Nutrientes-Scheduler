@@ -17,9 +17,10 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => fake()->name(),
             'calories' => fake()->randomFloat(2, 0, 1000),
             'total_fat' => fake()->randomFloat(2, 0, 1000),
-            'satured_fat' => fake()->randomFloat(2, 0, 1000),
+            'saturated_fat' => fake()->randomFloat(2, 0, 1000),
             'trans_fat' => fake()->randomFloat(2, 0, 1000),
             'cholesterol_fat' => fake()->randomFloat(2, 0, 1000),
             'polyunsaturated_fat' => fake()->randomFloat(2, 0, 1000),

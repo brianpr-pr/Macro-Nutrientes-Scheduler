@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
-use App\Models\User;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -13,11 +12,13 @@ class ProductController extends Controller
     public function products(Request $request): View
     {
     $result = '';
+    
         if($request->isMethod('post')){
             $validatedData = $request->validate([
+                'name' => 'required|string|max:255',
                 'calories' => 'required|numeric|min:1',
                 'total_fat' => 'required|numeric|min:0',
-                'satured_fat' => 'required|numeric|min:0',
+                'saturated_fat' => 'required|numeric|min:0',
                 'trans_fat' => 'required|numeric|min:0',
                 'cholesterol_fat' => 'required|numeric|min:0',
                 'polyunsaturated_fat' => 'required|numeric|min:0',
@@ -28,11 +29,12 @@ class ProductController extends Controller
                 'unit_measurement' => 'required|string|max:255',
                 'product_category_id' => 'required|numeric|min:1',
             ]);
+            $validatedData['user_id'] = Auth::id();
 
             $result = 'Product created succesfully';
-
             Product::create($validatedData);
         }
+
         return view('products', [
             'products' => Product::where('user_id',  Auth::id() )
             ->orWhereNull('user_id')

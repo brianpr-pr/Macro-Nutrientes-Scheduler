@@ -43,9 +43,10 @@ class Product extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'name',
         'calories',
         'total_fat',
-        'satured_fat',
+        'saturated_fat',
         'trans_fat',
         'cholesterol_fat',
         'polyunsaturated_fat',

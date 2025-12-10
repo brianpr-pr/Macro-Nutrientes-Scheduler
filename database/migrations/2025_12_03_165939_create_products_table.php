@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            //Should this be unique?
+            $table->string('name')->default('');
             $table->double('calories')->unsigned()->default(0.0);
             $table->double('total_fat')->unsigned()->default(0.0);
-            $table->double('satured_fat')->unsigned()->default(0.0);
+            $table->double('saturated_fat')->unsigned()->default(0.0);
             $table->double('trans_fat')->unsigned()->default(0.0);
             $table->double('cholesterol_fat')->unsigned()->default(0.0);
             $table->double('polyunsaturated_fat')->unsigned()->default(0.0);

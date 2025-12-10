@@ -38,26 +38,42 @@ class ProductController extends Controller
         }
 
 
-        /*
+        //Create object for Connection
         $client = new BedcaClient();
-        $food = $client->getFood(1);
 
-        echo var_dump( $food );
-        */
-        /*
-        foreach($client->getFoodGroups()->food as $foodGroup){
-            //Category Id that we can use when inserting row
-            //echo var_dump($foodGroup->fg_id);
-            foreach( $client->getFoodsInGroup($foodGroup->fg_id) as $food){
-                foreach($food as $foodItem){
-                    foreach($client->getFood($foodItem->f_id) as $foodData){
-                        echo var_dump( '$foodData' );
-                    }
-                }
+        //Initialize empty array to storage id of product categories
+        $foodGroups = [];
+        foreach($client->getFoodGroups()->food as $food ){
+            //We add the groups id to the array foodGroups
+            array_push($foodGroups,$food->fg_id);
+        }
+
+        //To show id of groups
+        //echo var_dump($foodGroups);
+
+        //To retrive a instance of a product
+        //echo var_dump($client->getFoodsInGroup($foodGroups[0])->food[0] );
+        
+        //Storage of id from a product
+        $idRandomProduct = $client->getFoodsInGroup($foodGroups[0])->food[0]->f_id;
+        //echo $idRandomProduct;
+
+        //Get english name from a product
+        //echo var_dump($client->getFood($idRandomProduct)->food->f_eng_name );
+        
+
+        //Untested
+        
+        foreach($foodGroups as $foodGroup){
+            //dump en vez de var_dump
+            dump($client->getFoodsInGroup($foodGroup)->food );
+            /*
+            foreach( $client->getFoodsInGroup($foodGroup)->food as $food){
+                echo var_dump($food->f_id);
             }
-        }*/
-
-        //foreach($client->getFoodsInGroup(1) as $food){echo(var_dump($food));}
+            */
+        }
+        
 
         return view('products', [
             'products' => Product::where('user_id',  Auth::id() )

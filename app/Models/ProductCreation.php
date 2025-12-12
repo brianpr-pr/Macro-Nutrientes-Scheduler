@@ -20,12 +20,9 @@ class ProductCreation extends Model
        return $this->belongsTo(User::class);
     }
 
-    /**
-     * The dishes that belongs to the product.
-     */
-    public function dishes(): BelongsToMany
+    public function product(): BelongsTo
     {
-        return $this->belongsToMany(Dish::class)->withPivot('units')->withTimestamps();
+        return $this->belongsTo(Product::class);
     }
 
     /**
@@ -58,12 +55,4 @@ class ProductCreation extends Model
         'product_category_id',
         'user_id'
     ];
-
-    /**
-     * Show all products.
-     */
-    function getProducts()
-    {
-        return ProductCreation::all();
-    }
 }

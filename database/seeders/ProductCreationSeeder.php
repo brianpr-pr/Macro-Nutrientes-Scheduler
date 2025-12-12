@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\ProductCreation;
 
 class ProductCreationSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class ProductCreationSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        ProductCreation::factory()->count(10)->create();
     }
 }

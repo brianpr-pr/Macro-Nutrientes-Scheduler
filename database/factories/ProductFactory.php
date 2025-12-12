@@ -16,21 +16,22 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->name(),
-            'calories' => fake()->randomFloat(2, 0, 1000),
-            'total_fat' => fake()->randomFloat(2, 0, 1000),
-            'saturated_fat' => fake()->randomFloat(2, 0, 1000),
-            'trans_fat' => fake()->randomFloat(2, 0, 1000),
-            'cholesterol_fat' => fake()->randomFloat(2, 0, 1000),
-            'polyunsaturated_fat' => fake()->randomFloat(2, 0, 1000),
-            'monounsaturated_fat' => fake()->randomFloat(2, 0, 1000),
-            'carbohydrates' => fake()->randomFloat(2, 0, 1000),
-            'fiber' => fake()->randomFloat(2, 0, 1000),
-            'proteins' => fake()->randomFloat(2, 0, 1000),
-            'unit_measurement' => fake()->randomFloat(2, 0, 1000),
-            'product_category_id' => random_int(1,11),
-            'user_id' => null
-        ];
+        $isProductDefault = random_int(0,1);
+
+        if($isProductDefault === 0){
+            return [
+                'name' => fake()->name(),
+                'calories' => fake()->randomFloat(2, 0, 1000),
+                'product_creation_id' => random_int(1,14),
+                'product_default_id' => null,
+            ];
+        }else{
+             return [
+                'name' => fake()->name(),
+                'calories' => fake()->randomFloat(2, 0, 1000),
+                'product_creation_id' => null,
+                'product_default_id' => random_int(680,682),
+            ];
+        }
     }
 }

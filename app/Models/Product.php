@@ -25,20 +25,29 @@ class Product extends Model
     ];
 
     /**
-     * Get which user this product belongs to.
-     */
-    public function user(): BelongsTo
-    {
-       return $this->belongsTo(User::class);
-    }
-
-    /**
      * The dishes that belongs to the product.
      */
     public function dishes(): BelongsToMany
     {
         return $this->belongsToMany(Dish::class)->withPivot('units')->withTimestamps();
     }
+
+    /**
+     * Get wich category this product belongs to.
+     */
+    public function product_defaults(): BelongsTo
+    {
+        return $this->belongsTo(ProductDefault::class);
+    }
+
+    /**
+     * Get wich category this product belongs to.
+     */
+    public function product_creations(): BelongsTo
+    {
+        return $this->belongsTo(ProductCreation::class);
+    }
+
 
     /**
      * Show all products.

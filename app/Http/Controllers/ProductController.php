@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function products(Request $request): View
     {
-    $result = '';
+        $result = '';
     
         if($request->isMethod('post')){
             $validatedData = $request->validate([

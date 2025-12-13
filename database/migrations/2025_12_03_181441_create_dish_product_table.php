@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('dish_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedBigInteger('units');
-            $table->timestamps();
         });
     }
 

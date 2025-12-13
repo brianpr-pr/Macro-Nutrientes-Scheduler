@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->double('total_macronutrients_day')->unsigned();
+            $table->timestamp('timestamp')->nullable()->default(null);
             $table->timestamps();
         });
     }

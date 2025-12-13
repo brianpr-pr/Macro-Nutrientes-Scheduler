@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             ProductDefaultSeeder::class,
             ProductCreationSeeder::class,
             ProductSeeder::class,
+            DishSeeder::class,
             
-            //DishSeeder::class,
             //MenuSeeder::class,
             //DaySeeder::class,
             //ProductSeeder::class,

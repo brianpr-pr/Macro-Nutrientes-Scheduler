@@ -19,9 +19,9 @@ class Day extends Model
      */
     protected $fillable = [
         'user_id',
+        'timestamp',
         'total_macronutrients_day',
     ];
-
 
     /**
      * Get which user this day belongs to.
@@ -36,6 +36,6 @@ class Day extends Model
      */
     public function menus(): BelongsToMany
     {
-        return $this->belongsToMany(Menu::class)->withTimestamps();
+        return $this->belongsToMany(Menu::class);
     }
 }

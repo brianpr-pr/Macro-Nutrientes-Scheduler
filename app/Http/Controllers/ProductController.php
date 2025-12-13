@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function products(Request $request): View
     {
         $result = '';
-
+        
         if($request->isMethod('post')){
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedInteger('amount_products');
             $table->double('total_macronutrients_dish')->unsigned();
-            $table->timestamps();   
+            $table->timestamps();
         });
     }
 

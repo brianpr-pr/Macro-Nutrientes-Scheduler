@@ -22,7 +22,7 @@ class Dish extends Model
      */
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class)->withPivot('units')->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('units');
     }
 
     /**
@@ -30,6 +30,6 @@ class Dish extends Model
      */
     public function menus(): BelongsToMany
     {
-        return $this->belongsToMany(Menu::class)->withTimestamps();
+        return $this->belongsToMany(Menu::class);
     }
 }

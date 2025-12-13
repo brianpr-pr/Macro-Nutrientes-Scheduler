@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('day_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('menu_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->timestamps();
         });
     }
 

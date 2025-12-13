@@ -36,11 +36,17 @@ class ProductController extends Controller
             $validatedData['user_id'] = Auth::id();
 
             $result = 'Product created succesfully';
-            Product::create($validatedData);
+            $product = ProductCreation::create($validatedData);
+            Product::create([
+                'name' => $product ->name,
+                'product_creation_id' => $product ->id,
+                'product_default_id' => null,
+            ]);
+
         }
         
         return view('products', [
-            'products' => ProductCreation::where('user_id',  Auth::id() )
+            'products' => Product::where('user_id',  Auth::id() )
             ->orWhereNull('user_id')
             ->get(),
             'product_category' => ProductCategory::all(),

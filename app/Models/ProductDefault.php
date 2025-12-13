@@ -46,4 +46,12 @@ class ProductDefault extends Model
         'unit_measurement',
         'product_category_id',
     ];
+
+    /**
+     * Show all products.
+     */
+    function getProducts()
+    {
+        return ProductDefault::all();
+    }
 }

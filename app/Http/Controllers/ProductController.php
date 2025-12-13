@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductCreation;
+use App\Models\ProductDefault;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,7 @@ class ProductController extends Controller
     public function products(Request $request): View
     {
         $result = '';
-    
+
         if($request->isMethod('post')){
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',
@@ -38,7 +40,7 @@ class ProductController extends Controller
         }
         
         return view('products', [
-            'products' => Product::where('user_id',  Auth::id() )
+            'products' => ProductCreation::where('user_id',  Auth::id() )
             ->orWhereNull('user_id')
             ->get(),
             'product_category' => ProductCategory::all(),

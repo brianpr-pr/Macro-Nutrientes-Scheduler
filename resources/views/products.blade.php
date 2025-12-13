@@ -1,14 +1,14 @@
 <x-app-layout>
 <div>
     <hr class="border-2 border-black">
-    <h1 class="text-5xl my-1">Create New Product</h1>
+    <h1 class="my-1 text-5xl">Create New Product</h1>
     <hr class="border-2 border-black">
-    <div class="border-2 border-black mt-4 mb-5 rounded-md">
-        <form action="products" method="post" class="flex flex-col mb-2 mt-4 ms-3">
+    <div class="mt-4 mb-5 border-2 border-black rounded-md">
+        <form action="products" method="post" class="flex flex-col ms-3 mt-4 mb-2">
             @csrf
             <div class="mb-2">
                 <label for="name">Name:</label>
-                <input type="string" placeholder="Product name" required name="name" id="name" class="rounded-md w-32 px-2">
+                <input type="string" placeholder="Product name" required name="name" id="name" class="px-2 rounded-md w-32">
                 @if($errors->has('name'))
                     <div>
                         <p class="text-red-500">{{ $errors->first('name') }}</p>
@@ -144,20 +144,20 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="text-white rounded-md border-2 bg-blue-500 w-32 m-auto">Create Product</button>
+            <button type="submit" class="bg-blue-500 m-auto border-2 rounded-md w-32 text-white">Create Product</button>
         </form>
     </div>
 
     <div>
-        <p class="text-lg text-center mt-1 mb-5 text-green-500">{{$message}}</p>
+        <p class="mt-1 mb-5 text-green-500 text-lg text-center">{{$message}}</p>
     </div>
 
     <hr class="border-2 border-black">
-    <h1 class="text-5xl  my-1">List of Products Avaliable</h1>
+    <h1 class="my-1 text-5xl">List of Products Avaliable</h1>
     <hr class="border-2 border-black">
 
      @foreach($products as $product)
-        <div class="border-2 border-black rounded-md my-2">
+        <div class="my-2 border-2 border-black rounded-md">
             <p> Id: {{ $product->id }} </p>
             <p> Calories: {{ $product->calories }} </p>
             <p> Total Fat: {{ $product->total_fat }} </p>
@@ -174,8 +174,8 @@
             
             @if($product->user_id != 0)
                 <p> User Id: {{ $product->user_id }} </p>
-                <button class="text-white border-2 rounded-md bg-red-500 p-2 m-3">Delete</button>
-                <button class="border-2 border-red-500 rounded-md bg-white p-2 m-3">Edit</button>
+                <button class="bg-red-500 m-3 p-2 border-2 rounded-md text-white">Delete</button>
+                <button class="bg-white m-3 p-2 border-2 border-red-500 rounded-md">Edit</button>
             @endif
         </div>
      @endforeach
